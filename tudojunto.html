@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daniel Caldas da Silva - Corretor de Imóveis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       :root {
+    --primary-color: #a317b3;
+    --secondary-color: #b3177a;
+    --tertiary-color: #4e5163;
+    --light-color: #f8f9fa;
+    --dark-color: #212529;
+    --gray-color: #6c757d;
+    --light-gray: #e9ecef;
+}
+
+/* General Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--dark-color);
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn {
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: #8a1299;
+    border-color: #8a1299;
+    transform: translateY(-2px);
+}
+
+.btn-outline-primary {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.btn-outline-light:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.section-title:after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    margin: 15px auto 0;
+}
+
+/* Header */
+header {
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar {
+    padding: 15px 0;
+}
+
+.navbar-brand {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.brand-subtitle {
+    font-size: 0.9rem;
+    color: var(--tertiary-color);
+}
+
+.navbar-nav .nav-link {
+    color: var(--tertiary-color);
+    font-weight: 600;
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 20px;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link:hover {
+    color: white;
+    background-color: var(--primary-color);
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 100px 0;
+    background-color: var(--light-color);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    line-height: 1.2;
+}
+
+.hero-content .lead {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: var(--tertiary-color);
+}
+
+.hero-buttons .btn {
+    margin-right: 15px;
+    margin-bottom: 15px;
+}
+
+.hero-image {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(163, 23, 179, 0.3), rgba(179, 23, 122, 0.3));
+    z-index: 1;
+}
+
+.hero-image img {
+    transition: transform 0.5s ease;
+}
+
+.hero-image:hover img {
+    transform: scale(1.05);
+}
+
+/* Property Cards */
+.property-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.property-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.property-card .card-img-top {
+    height: 220px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.property-card:hover .card-img-top {
+    transform: scale(1.1);
+}
+
+.badge-overlay {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    z-index: 2;
+}
+
+.badge {
+    padding: 8px 12px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+    background-color: var(--secondary-color) !important;
+}
+
+.property-card .card-body {
+    padding: 20px;
+}
+
+.property-card .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: var(--dark-color);
+}
+
+.property-card .features {
+    margin: 15px 0;
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+.property-card .features i {
+    margin-right: 5px;
+    color: var(--primary-color);
+}
+
+.property-card .card-footer {
+    border-top: none;
+    padding: 15px 20px;
+}
+
+.price {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
+/* About Section */
+.about-section {
+    position: relative;
+}
+
+.about-image {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.about-image:hover {
+    transform: scale(1.02);
+}
+
+.about-content {
+    padding-left: 30px;
+}
+
+.section-subtitle {
+    color: var(--secondary-color);
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.about-features {
+    margin-top: 30px;
+}
+
+.feature-item {
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(163, 23, 179, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    color: var(--primary-color);
+    font-size: 1.2rem;
+}
+
+.feature-text h4 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: var(--dark-color);
+}
+
+.feature-text p {
+    color: var(--gray-color);
+    margin-bottom: 0;
+}
+
+/* Services Section */
+.service-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+    text-align: center;
+    padding: 30px 20px;
+    background-color: white;
+}
+
+.service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.service-card .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+    color: var(--dark-color);
+}
+
+.service-card .card-text {
+    color: var(--gray-color);
+}
+
+/* Testimonials */
+.testimonial-card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-rating {
+    color: #ffc107;
+    margin-bottom: 20px;
+}
+
+.testimonial-text {
+    font-style: italic;
+    color: var(--gray-color);
+    margin-bottom: 20px;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+}
+
+.author-info h5 {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+
+.author-info p {
+    color: var(--gray-color);
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+
+/* CTA Section */
+.cta-section {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    padding: 60px 0;
+}
+
+.cta-section h2 {
+    margin-bottom: 15px;
+}
+
+.cta-section .btn-light {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Footer */
+.footer {
+    background-color: var(--tertiary-color);
+    color: white;
+}
+
+.footer h3 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.footer-subtitle {
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 20px;
+}
+
+.footer h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer h4:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-links {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-links a:hover {
+    color: white;
+    padding-left: 5px;
+}
+
+.footer-contact {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-contact li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: flex-start;
+}
+
+.footer-contact i {
+    margin-right: 10px;
+    color: var(--primary-color);
+    margin-top: 3px;
+}
+
+footer .row{
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.newsletter-form .form-control {
+    border-radius: 30px 0 0 30px;
+    border: none;
+    height: 45px;
+}
+
+.newsletter-form .btn {
+    border-radius: 0 30px 30px 0;
+    height: 45px;
+}
+
+/* WhatsApp Button */
+.whatsapp-button {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background-color: #25D366;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    z-index: 999;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+    color: white;
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Responsive Styles */
+@media (max-width: 1199.98px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .hero-section {
+        padding: 80px 0;
+    }
+    
+    .hero-content {
+        margin-bottom: 40px;
+        text-align: center;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .about-content {
+        padding-left: 0;
+        padding-top: 40px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+    
+    .section-title {
+        text-align: center;
+    }
+    
+    .section-title:after {
+        margin: 15px auto 0;
+    }
+    
+    .cta-section .text-lg-end {
+        text-align: left !important;
+        margin-top: 20px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-buttons .btn {
+        display: block;
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+    
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Carrossel de Notícias */
+.news-carousel {
+    background-color: var(--light-gray);
+}
+
+.news-carousel .carousel {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+}
+
+.news-carousel .carousel-item {
+    padding: 30px;
+}
+
+.news-carousel .carousel-caption {
+    position: relative;
+    left: auto;
+    right: auto;
+    padding: 0;
+    color: var(--dark-color);
+    text-align: left;
+}
+
+.news-carousel .carousel-caption h3 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.news-carousel .carousel-caption p {
+    margin-bottom: 20px;
+}
+
+.news-carousel .carousel-control-prev,
+.news-carousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+.news-carousel .carousel-control-prev {
+    left: 15px;
+}
+
+.news-carousel .carousel-control-next {
+    right: 15px;
+}
+
+/* Seção de Busca */
+.property-search {
+    background: linear-gradient(rgba(163, 23, 179, 0.05), rgba(179, 23, 122, 0.05));
+}
+
+.search-box {
+    background-color: white;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 4px solid var(--primary-color);
+}
+
+.search-box h2 {
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.search-box h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+.form-select {
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+.form-select:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(163, 23, 179, 0.25);
+}
+
+/* Responsivo para o carrossel */
+@media (max-width: 767.98px) {
+    .news-carousel .carousel-item .col-md-6 {
+        padding: 0;
+    }
+    
+    .news-carousel .carousel-item img {
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .news-carousel .carousel-caption {
+        padding: 20px;
+        text-align: center;
+    }
+    
+    .news-carousel .carousel-control-prev,
+    .news-carousel .carousel-control-next {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .search-box {
+        padding: 20px 15px;
+    }
+}
+
+/* Breadcrumb */
+.breadcrumb-section {
+    background-color: var(--light-gray);
+}
+
+.breadcrumb {
+    margin-bottom: 0;
+}
+
+.breadcrumb-item a {
+    color: var(--primary-color);
+}
+
+.breadcrumb-item.active {
+    color: var(--tertiary-color);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+    color: var(--tertiary-color);
+}
+
+/* Filtros */
+.filter-box {
+    background-color: white;
+    border-top: 4px solid var(--primary-color);
+}
+
+.filter-box h2 {
+    color: var(--primary-color);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.filter-box h2:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+/* Galeria de Imóveis */
+.property-gallery .sort-options {
+    width: 250px;
+}
+
+/* Paginação */
+.pagination .page-item .page-link {
+    color: var(--primary-color);
+    border: 1px solid #dee2e6;
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+}
+
+.pagination .page-item:hover .page-link {
+    background-color: rgba(163, 23, 179, 0.1);
+}
+
+/* Responsivo */
+@media (max-width: 767.98px) {
+    .property-gallery .d-flex {
+        flex-direction: column;
+    }
+    
+    .property-gallery .sort-options {
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+
+/* Hero Equipe */
+.team-hero {
+    background: linear-gradient(rgba(163, 23, 179, 0.8), rgba(179, 23, 122, 0.8)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+    background-size: cover;
+    background-position: center;
+    color: white;
+}
+
+/* Cards da Equipe */
+.team-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.team-img-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.team-img-wrapper img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.team-card:hover .team-img-wrapper img {
+    transform: scale(1.1);
+}
+
+.team-social {
+    position: absolute;
+    bottom: -60px;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    padding: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.team-card:hover .team-social {
+    bottom: 0;
+}
+
+.team-social a {
+    color: white;
+    font-size: 1.2rem;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+}
+
+.team-social a:hover {
+    transform: translateY(-3px);
+    color: white;
+}
+
+.team-position {
+    color: var(--secondary-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-info {
+    margin-top: 20px;
+    text-align: left;
+}
+
+.team-info p {
+    margin-bottom: 8px;
+    color: var(--gray-color);
+}
+
+.team-info i {
+    color: var(--primary-color);
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Equipe de Apoio */
+.support-card {
+    border: none;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.support-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.support-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.support-card .card-body {
+    padding: 20px;
+}
+
+.support-card .card-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.support-card .card-text {
+    font-size: 0.9rem;
+    color: var(--gray-color);
+}
+
+/* CTA Equipe */
+.team-cta {
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+}
+
+/* Responsivo */
+@media (max-width: 767.98px) {
+    .team-img-wrapper img {
+        height: 250px;
+    }
+    
+    .team-social {
+        bottom: 0;
+        background: rgba(163, 23, 179, 0.7);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span class="brand-name">Daniel Caldas da Silva</span>
+                    <span class="brand-subtitle">Corretor de Imóveis</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./imoveis.php">Imóveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="equipe.php">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Blog</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#">Área Restrita</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Carrossel de Notícias -->
+    <section class="news-carousel py-5 bg-light">
+        <div class="container">
+            <div id="newsCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <!-- Notícia 1 -->
+                    <div class="carousel-item active">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100 rounded" alt="Mercado imobiliário">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-caption">
+                                    <h3>Mercado imobiliário tem alta de 12% no primeiro semestre</h3>
+                                    <p>O setor imobiliário registrou crescimento significativo nos primeiros seis meses do ano, impulsionado pela retomada econômica e novos programas de financiamento.</p>
+                                    <a href="#" class="btn btn-primary">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notícia 2 -->
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100 rounded" alt="Novas regras de financiamento">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-caption">
+                                    <h3>Novas regras de financiamento imobiliário</h3>
+                                    <p>O governo anunciou mudanças nas regras de financiamento que podem beneficiar compradores de primeira viagem e impulsionar o mercado de imóveis usados.</p>
+                                    <a href="#" class="btn btn-primary">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Notícia 3 -->
+                    <div class="carousel-item">
+                        <div class="row align-items-center">
+                            <div class="col-md-6">
+                                <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="d-block w-100 rounded" alt="Tendências de arquitetura">
+                            </div>
+                            <div class="col-md-6">
+                                <div class="carousel-caption">
+                                    <h3>Tendências de arquitetura para 2024</h3>
+                                    <p>Conheça as principais tendências em projetos residenciais que estão dominando o mercado e como elas podem valorizar seu imóvel.</p>
+                                    <a href="#" class="btn btn-primary">Leia mais</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#newsCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Anterior</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#newsCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Próximo</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Busca -->
+    <section class="property-search py-5">
+        <div class="container">
+            <div class="search-box p-4 rounded shadow">
+                <h2 class="text-center mb-4">Encontre seu imóvel</h2>
+                <form>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label for="propertyType" class="form-label">Tipo de Imóvel</label>
+                            <select class="form-select" id="propertyType">
+                                <option selected>Todos</option>
+                                <option>Casa</option>
+                                <option>Apartamento</option>
+                                <option>Terreno</option>
+                                <option>Comercial</option>
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="transactionType" class="form-label">Tipo de Negócio</label>
+                            <select class="form-select" id="transactionType">
+                                <option selected>Comprar</option>
+                                <option>Alugar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="location" class="form-label">Localização</label>
+                            <select class="form-select" id="location">
+                                <option selected>Todas as regiões</option>
+                                <option>Centro</option>
+                                <option>Zona Norte</option>
+                                <option>Zona Sul</option>
+                                <option>Zona Oeste</option>
+                                <option>Zona Leste</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="bedrooms" class="form-label">Quartos</label>
+                            <select class="form-select" id="bedrooms">
+                                <option selected>Qualquer</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4+</option>
+                            </select>
+                        </div>
+                        <div class="col-md-4">
+                            <label for="priceRange" class="form-label">Faixa de Preço</label>
+                            <select class="form-select" id="priceRange">
+                                <option selected>Qualquer</option>
+                                <option>Até R$ 500.000</option>
+                                <option>R$ 500.000 - R$ 1.000.000</option>
+                                <option>R$ 1.000.000 - R$ 2.000.000</option>
+                                <option>Acima de R$ 2.000.000</option>
+                            </select>
+                        </div>
+                        <div class="col-12 text-center mt-3">
+                            <button type="submit" class="btn btn-primary btn-lg">Buscar Imóveis</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Destaques -->
+    <section class="highlights py-5">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Imóveis em Destaque</h2>
+                <p class="text-muted">Confira nossas melhores oportunidades</p>
+            </div>
+            
+            <div class="row">
+                <!-- Card 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card property-card h-100">
+                        <div class="badge-overlay">
+                            <span class="badge bg-primary">Destaque</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Casa moderna">
+                        <div class="card-body">
+                            <h5 class="card-title">Residencial Alphaville</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Barra da Tijuca, Rio de Janeiro</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 4 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 3 Banheiros</span>
+                                <span><i class="fas fa-ruler-combined"></i> 320m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 2.450.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card property-card h-100">
+                        <div class="badge-overlay">
+                            <span class="badge bg-secondary">Novidade</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Apartamento moderno">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento Higienópolis</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Higienópolis, São Paulo</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 3 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banheiros</span>
+                                <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 1.850.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="card property-card h-100">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Cobertura luxo">
+                        <div class="card-body">
+                            <h5 class="card-title">Cobertura Vista Mar</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Praia do Canto, Vitória</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 4 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 4 Banheiros</span>
+                                <span><i class="fas fa-ruler-combined"></i> 380m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 4.200.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary btn-lg">Ver Todos os Imóveis</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre -->
+    <section class="about-section py-5 bg-light" id="sobre">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Daniel Caldas da Silva" class="img-fluid rounded about-image">
+                </div>
+                <div class="col-lg-6 about-content">
+                    <h2 class="section-title">Daniel Caldas da Silva</h2>
+                    <h3 class="section-subtitle">Corretor de Imóveis</h3>
+                    <p>Com mais de 15 anos de experiência no mercado imobiliário, ofereço um atendimento personalizado e dedicado para ajudar você a encontrar o imóvel perfeito ou vender sua propriedade com o melhor retorno possível.</p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Expertise</h4>
+                                <p>Conhecimento profundo do mercado imobiliário local e nacional.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Transparência</h4>
+                                <p>Relação de confiança e honestidade com todos os clientes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Resultados</h4>
+                                <p>Compromisso com os melhores resultados para seus negócios.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#" class="btn btn-primary mt-3">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section class="services-section py-5">
+        <div class="container">
+            <div class="section-title text-center mb-5">
+                <h2>Nossos Serviços</h2>
+                <p class="text-muted">Como podemos te ajudar</p>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-home"></i>
+                            </div>
+                            <h4 class="card-title">Compra de Imóveis</h4>
+                            <p class="card-text">Te ajudamos a encontrar o imóvel perfeito, dentro do seu orçamento e com todas as características desejadas.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                            </div>
+                            <h4 class="card-title">Venda de Imóveis</h4>
+                            <p class="card-text">Maximizamos o valor do seu imóvel com estratégias de marketing e negociação especializada.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-md-4 mb-4">
+                    <div class="card service-card h-100">
+                        <div class="card-body text-center">
+                            <div class="service-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h4 class="card-title">Administração de Aluguel</h4>
+                            <p class="card-text">Gerenciamento completo do seu imóvel alugado, desde a seleção de inquilinos até a cobrança de aluguel.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>Daniel Caldas da Silva</h3>
+                    <p class="footer-subtitle">Corretor de Imóveis</p>
+                    <p>CRECI/PR: 41335</p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://danielcaldascorretordeimoveis.com/?fbclid=IwZXh0bgNhZW0CMTEAAR7dDVY-LrZZQQofF-XLX9Q9JtYRTTKIUC3cjEePaY8sCu89LsYVZi_O8QgK-g_aem_wI0RVqZefvVYIa1VMmIL-g"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/danielcaldas_corretorimoveis?igsh=OG9uYThta292ZHBr"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@danielcaldasdasil?_t=ZM-8xfyGlnUDdW&_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone-alt"></i> (42) 99815-1888</li>
+                        <li><i class="fas fa-envelope"></i> imobiliariaprospectarimoveis@gmail.com
+</li>
+                        <li><a href="https://maps.app.goo.gl/VKQTcx1PWJFYbAEMA"><i class="fas fa-map-marker-alt"></i></a> Rua 7 de setembro, 109 - Bairro Azaléia 
+, Pinhão - PR</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4">
+            
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <p class="mb-0">&copy; Desenvolvido por <a href="https://jhstech.com.br/index.php?menuop=portifolio">JHStech</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5542998151888" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado -->
+    <script>
+       // Animação de scroll suave para links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        
+        const targetId = this.getAttribute('href');
+        if(targetId === '#') return;
+        
+        const targetElement = document.querySelector(targetId);
+        if(targetElement) {
+            window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+    });
+});
+
+// Efeito de aparecimento ao rolar a página
+const animateOnScroll = () => {
+    const elements = document.querySelectorAll('.property-card, .service-card, .testimonial-card, .about-image, .about-content');
+    
+    elements.forEach(element => {
+        const elementPosition = element.getBoundingClientRect().top;
+        const screenPosition = window.innerHeight / 1.3;
+        
+        if(elementPosition < screenPosition) {
+            element.style.opacity = '1';
+            element.style.transform = 'translateY(0)';
+        }
+    });
+};
+
+// Configuração inicial para elementos animados
+window.addEventListener('DOMContentLoaded', () => {
+    const elements = document.querySelectorAll('.property-card, .service-card, .testimonial-card, .about-image, .about-content');
+    
+    elements.forEach(element => {
+        element.style.opacity = '0';
+        element.style.transform = 'translateY(20px)';
+        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    });
+    
+    // Dispara a animação uma vez no carregamento
+    setTimeout(animateOnScroll, 300);
+});
+
+// Adiciona o evento de scroll
+window.addEventListener('scroll', animateOnScroll);
+
+// Ativa tooltips do Bootstrap
+const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+tooltipTriggerList.map(function (tooltipTriggerEl) {
+    return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+
+// Validação do formulário de newsletter
+const newsletterForm = document.querySelector('.newsletter-form');
+if(newsletterForm) {
+    newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const emailInput = this.querySelector('input[type="email"]');
+        
+        if(emailInput.value && emailInput.value.includes('@')) {
+            // Simula o envio do formulário
+            emailInput.value = '';
+            alert('Obrigado por assinar nossa newsletter!');
+        } else {
+            alert('Por favor, insira um e-mail válido.');
+        }
+    });
+}
+
+// Configuração do carrossel de notícias
+const newsCarousel = document.getElementById('newsCarousel');
+if(newsCarousel) {
+    // Configura intervalo de transição automática (5 segundos)
+    const carousel = new bootstrap.Carousel(newsCarousel, {
+        interval: 5000,
+        pause: 'hover'
+    });
+    
+    // Adiciona animação fade
+    newsCarousel.addEventListener('slide.bs.carousel', function () {
+        const activeItem = this.querySelector('.carousel-item.active');
+        activeItem.classList.add('fade-out');
+        
+        setTimeout(() => {
+            activeItem.classList.remove('fade-out');
+        }, 600);
+    });
+}
+
+// Parte dos imóveis
+
+// Filtros da galeria de imóveis
+document.addEventListener('DOMContentLoaded', function() {
+    const filterForm = document.getElementById('propertyFilter');
+    const sortSelect = document.getElementById('sortProperties');
+    const propertyItems = document.querySelectorAll('.property-item');
+    
+    if(filterForm) {
+        filterForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            filterProperties();
+        });
+        
+        filterForm.addEventListener('reset', function() {
+            setTimeout(filterProperties, 0);
+        });
+    }
+    
+    if(sortSelect) {
+        sortSelect.addEventListener('change', function() {
+            sortProperties();
+        });
+    }
+    
+    function filterProperties() {
+        const type = document.getElementById('filterType').value;
+        const transaction = document.getElementById('filterTransaction').value;
+        const location = document.getElementById('filterLocation').value;
+        const bedrooms = document.getElementById('filterBedrooms').value;
+        const priceMin = parseInt(document.getElementById('filterPriceMin').value);
+        const priceMax = parseInt(document.getElementById('filterPriceMax').value);
+        const areaMin = parseInt(document.getElementById('filterAreaMin').value);
+        
+        propertyItems.forEach(item => {
+            const itemType = item.dataset.type;
+            const itemTransaction = item.dataset.transaction;
+            const itemLocation = item.dataset.location;
+            const itemBedrooms = item.dataset.bedrooms;
+            const itemPrice = parseInt(item.dataset.price);
+            const itemArea = parseInt(item.dataset.area);
+            
+            const typeMatch = type === 'all' || itemType === type;
+            const transactionMatch = transaction === 'all' || itemTransaction === transaction;
+            const locationMatch = location === 'all' || itemLocation === location;
+            const bedroomsMatch = bedrooms === 'all' || 
+                                (bedrooms === '4+' && itemBedrooms >= 4) || 
+                                itemBedrooms === bedrooms;
+            const priceMatch = itemPrice >= priceMin && itemPrice <= priceMax;
+            const areaMatch = itemArea >= areaMin;
+            
+            if(typeMatch && transactionMatch && locationMatch && bedroomsMatch && priceMatch && areaMatch) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+    
+    function sortProperties() {
+        const sortValue = sortSelect.value;
+        const container = document.getElementById('propertyGrid');
+        const items = Array.from(document.querySelectorAll('.property-item'));
+        
+        items.sort((a, b) => {
+            const aPrice = parseInt(a.dataset.price);
+            const bPrice = parseInt(b.dataset.price);
+            const aArea = parseInt(a.dataset.area);
+            const bArea = parseInt(b.dataset.area);
+            
+            switch(sortValue) {
+                case 'price-asc':
+                    return aPrice - bPrice;
+                case 'price-desc':
+                    return bPrice - aPrice;
+                case 'area-asc':
+                    return aArea - bArea;
+                case 'area-desc':
+                    return bArea - aArea;
+                default: // 'recent' or others
+                    return 0;
+            }
+        });
+        
+        // Clear container
+        while(container.firstChild) {
+            container.removeChild(container.firstChild);
+        }
+        
+        // Append sorted items
+        items.forEach(item => {
+            container.appendChild(item);
+        });
+    }
+});
+
+// Efeitos para a página da equipe
+document.addEventListener('DOMContentLoaded', function() {
+    // Animação dos cards da equipe
+    const teamCards = document.querySelectorAll('.team-card, .support-card');
+    
+    teamCards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = `opacity 0.5s ease ${index * 0.1}s, transform 0.5s ease ${index * 0.1}s`;
+        
+        setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+        }, 300);
+    });
+    
+    // Tooltips para contatos
+    const contactButtons = document.querySelectorAll('.btn-outline-primary');
+    contactButtons.forEach(button => {
+        button.addEventListener('mouseenter', function() {
+            this.innerHTML = `<i class="fas fa-envelope"></i> ${this.textContent}`;
+        });
+        
+        button.addEventListener('mouseleave', function() {
+            this.textContent = 'Contato';
+        });
+    });
+});
+    </script>
+</body>
+</html>

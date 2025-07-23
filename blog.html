@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog | Daniel Caldas da Silva - Corretor de Imóveis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header (igual às outras páginas) -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <span class="brand-name">Daniel Caldas da Silva</span>
+                    <span class="brand-subtitle">Corretor de Imóveis</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="imoveis.html">Imóveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="equipe.html">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="blog.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html">Área Restrita</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section py-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Blog</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Blog -->
+    <section class="blog-hero py-5 text-center text-white">
+        <div class="container">
+            <h1 class="display-4 mb-3">Blog Imobiliário</h1>
+            <p class="lead">Dicas, notícias e análises sobre o mercado imobiliário</p>
+        </div>
+    </section>
+
+    <!-- Conteúdo Principal -->
+    <section class="blog-main py-5">
+        <div class="container">
+            <div class="row">
+                <!-- Artigos -->
+                <div class="col-lg-8">
+                    <!-- Destaque -->
+                    <article class="blog-featured mb-5">
+                        <div class="card border-0 shadow-sm">
+                            <img src="https://images.unsplash.com/photo-1560520031-3a4dc4e9de0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Mercado imobiliário">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <span class="badge bg-primary me-2">Destaque</span>
+                                    <small class="text-muted"><i class="far fa-calendar-alt me-1"></i> 15 de Outubro, 2023</small>
+                                </div>
+                                <h2 class="card-title"><a href="post.html" class="text-decoration-none">Análise do Mercado Imobiliário no 3º Trimestre de 2023</a></h2>
+                                <p class="card-text">O mercado imobiliário brasileiro apresentou crescimento de 8,7% no terceiro trimestre de 2023, impulsionado principalmente pelo segmento de médio padrão. Neste artigo, analisamos os fatores que contribuíram para esse desempenho e as perspectivas para o último trimestre do ano.</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <a href="post.html" class="btn btn-primary">Continuar Lendo</a>
+                                    <small class="text-muted"><i class="far fa-comments me-1"></i> 12 comentários</small>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Lista de Artigos -->
+                    <div class="row">
+                        <!-- Artigo 1 -->
+                        <div class="col-md-6 mb-4">
+                            <article class="blog-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Financiamento imobiliário">
+                                    <div class="card-body">
+                                        <small class="text-muted d-block mb-2"><i class="far fa-calendar-alt me-1"></i> 10 de Outubro, 2023</small>
+                                        <h3 class="h5 card-title"><a href="post.html" class="text-decoration-none">Como Aproveitar as Novas Regras de Financiamento</a></h3>
+                                        <p class="card-text">O governo anunciou mudanças nas regras de financiamento que podem beneficiar compradores de primeira viagem. Saiba como aproveitar essas oportunidades.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="post.html" class="btn btn-sm btn-outline-primary">Ler Mais</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Artigo 2 -->
+                        <div class="col-md-6 mb-4">
+                            <article class="blog-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Tendências arquitetura">
+                                    <div class="card-body">
+                                        <small class="text-muted d-block mb-2"><i class="far fa-calendar-alt me-1"></i> 5 de Outubro, 2023</small>
+                                        <h3 class="h5 card-title"><a href="post.html" class="text-decoration-none">Tendências de Arquitetura para 2024</a></h3>
+                                        <p class="card-text">Conheça as principais tendências em projetos residenciais que estão dominando o mercado e como elas podem valorizar seu imóvel.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="post.html" class="btn btn-sm btn-outline-primary">Ler Mais</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Artigo 3 -->
+                        <div class="col-md-6 mb-4">
+                            <article class="blog-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" class="card-img-top" alt="Decoração de apartamento">
+                                    <div class="card-body">
+                                        <small class="text-muted d-block mb-2"><i class="far fa-calendar-alt me-1"></i> 28 de Setembro, 2023</small>
+                                        <h3 class="h5 card-title"><a href="post.html" class="text-decoration-none">5 Dicas para Decorar Apartamentos Pequenos</a></h3>
+                                        <p class="card-text">Aprenda estratégias inteligentes para maximizar espaços pequenos e transformar seu apartamento em um lar aconchegante e funcional.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="post.html" class="btn btn-sm btn-outline-primary">Ler Mais</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+
+                        <!-- Artigo 4 -->
+                        <div class="col-md-6 mb-4">
+                            <article class="blog-card h-100">
+                                <div class="card border-0 shadow-sm h-100">
+                                    <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="card-img-top" alt="Documentação para venda">
+                                    <div class="card-body">
+                                        <small class="text-muted d-block mb-2"><i class="far fa-calendar-alt me-1"></i> 20 de Setembro, 2023</small>
+                                        <h3 class="h5 card-title"><a href="post.html" class="text-decoration-none">Documentação Necessária para Vender seu Imóvel</a></h3>
+                                        <p class="card-text">Guia completo com todos os documentos necessários para realizar a venda do seu imóvel sem complicações e com segurança jurídica.</p>
+                                    </div>
+                                    <div class="card-footer bg-transparent border-0">
+                                        <a href="post.html" class="btn btn-sm btn-outline-primary">Ler Mais</a>
+                                    </div>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+
+                    <!-- Paginação -->
+                    <nav aria-label="Page navigation" class="mt-5">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">Próximo</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+
+                <!-- Sidebar -->
+                <div class="col-lg-4">
+                    <div class="blog-sidebar">
+                        <!-- Busca -->
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mb-3">Buscar no Blog</h3>
+                                <form class="search-form">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Digite aqui...">
+                                        <button class="btn btn-primary" type="submit"><i class="fas fa-search"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Categorias -->
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mb-3">Categorias</h3>
+                                <ul class="list-group list-group-flush">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#" class="text-decoration-none">Mercado Imobiliário</a>
+                                        <span class="badge bg-primary rounded-pill">8</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#" class="text-decoration-none">Financiamento</a>
+                                        <span class="badge bg-primary rounded-pill">5</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#" class="text-decoration-none">Decoração</a>
+                                        <span class="badge bg-primary rounded-pill">3</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#" class="text-decoration-none">Documentação</a>
+                                        <span class="badge bg-primary rounded-pill">4</span>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="#" class="text-decoration-none">Dicas para Venda</a>
+                                        <span class="badge bg-primary rounded-pill">6</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Posts Populares -->
+                        <div class="card mb-4 shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mb-3">Posts Populares</h3>
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Como Valorizar seu Imóvel</h5>
+                                        </div>
+                                        <small class="text-muted">12 de Setembro, 2023</small>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Taxas de Juros em 2023</h5>
+                                        </div>
+                                        <small class="text-muted">5 de Setembro, 2023</small>
+                                    </a>
+                                    <a href="#" class="list-group-item list-group-item-action">
+                                        <div class="d-flex w-100 justify-content-between">
+                                            <h5 class="mb-1">Bairros em Alta no Rio</h5>
+                                        </div>
+                                        <small class="text-muted">28 de Agosto, 2023</small>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter -->
+                        <div class="card shadow-sm">
+                            <div class="card-body">
+                                <h3 class="h5 card-title mb-3">Assine nossa Newsletter</h3>
+                                <p class="card-text">Receba as últimas notícias e artigos diretamente no seu e-mail.</p>
+                                <form class="newsletter-form">
+                                    <div class="mb-3">
+                                        <input type="text" class="form-control" placeholder="Seu Nome">
+                                    </div>
+                                    <div class="mb-3">
+                                        <input type="email" class="form-control" placeholder="Seu E-mail">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary w-100">Assinar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>Daniel Caldas da Silva</h3>
+                    <p class="footer-subtitle">Corretor de Imóveis</p>
+                    <p>CRECI/PR: 41335</p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://danielcaldascorretordeimoveis.com/?fbclid=IwZXh0bgNhZW0CMTEAAR7dDVY-LrZZQQofF-XLX9Q9JtYRTTKIUC3cjEePaY8sCu89LsYVZi_O8QgK-g_aem_wI0RVqZefvVYIa1VMmIL-g"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/danielcaldas_corretorimoveis?igsh=OG9uYThta292ZHBr"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@danielcaldasdasil?_t=ZM-8xfyGlnUDdW&_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone-alt"></i> (42) 99815-1888</li>
+                        <li><i class="fas fa-envelope"></i> imobiliariaprospectarimoveis@gmail.com
+</li>
+                        <li><a href="https://maps.app.goo.gl/VKQTcx1PWJFYbAEMA"><i class="fas fa-map-marker-alt"></i></a> Rua 7 de setembro, 109 - Bairro Azaléia 
+, Pinhão - PR</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4">
+            
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <p class="mb-0">&copy; Desenvolvido por <a href="https://jhstech.com.br/index.php?menuop=portifolio">JHStech</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5542998151888" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>

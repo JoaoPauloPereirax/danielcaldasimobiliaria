@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria de Imóveis | Daniel Caldas da Silva - Corretor de Imóveis</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span class="brand-name">Daniel Caldas da Silva</span>
+                    <span class="brand-subtitle">Corretor de Imóveis</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="imoveis.html">Imóveis</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html#sobre">Sobre</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="equipe.html">Equipe</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="blog.html">Blog</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="login.html">Área Restrita</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Breadcrumb -->
+    <section class="breadcrumb-section py-3">
+        <div class="container">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Galeria de Imóveis</li>
+                </ol>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Filtros -->
+    <section class="filters-section py-4 bg-light">
+        <div class="container">
+            <div class="filter-box p-4 rounded shadow-sm">
+                <h2 class="mb-4">Filtrar Imóveis</h2>
+                <form id="propertyFilter">
+                    <div class="row g-3">
+                        <!-- Linha 1 de filtros -->
+                        <div class="col-md-3">
+                            <label for="filterType" class="form-label">Tipo de Imóvel</label>
+                            <select class="form-select" id="filterType">
+                                <option value="all" selected>Todos</option>
+                                <option value="house">Casa</option>
+                                <option value="apartment">Apartamento</option>
+                                <option value="commercial">Comercial</option>
+                                <option value="land">Terreno</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="filterTransaction" class="form-label">Tipo de Negócio</label>
+                            <select class="form-select" id="filterTransaction">
+                                <option value="all" selected>Todos</option>
+                                <option value="sale">Comprar</option>
+                                <option value="rent">Alugar</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="filterLocation" class="form-label">Localização</label>
+                            <select class="form-select" id="filterLocation">
+                                <option value="all" selected>Todas</option>
+                                <option value="centro">Centro</option>
+                                <option value="norte">Zona Norte</option>
+                                <option value="sul">Zona Sul</option>
+                                <option value="oeste">Zona Oeste</option>
+                                <option value="leste">Zona Leste</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="filterBedrooms" class="form-label">Quartos</label>
+                            <select class="form-select" id="filterBedrooms">
+                                <option value="all" selected>Qualquer</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4+">4+</option>
+                            </select>
+                        </div>
+                        
+                        <!-- Linha 2 de filtros -->
+                        <div class="col-md-3">
+                            <label for="filterPriceMin" class="form-label">Preço Mínimo</label>
+                            <select class="form-select" id="filterPriceMin">
+                                <option value="0" selected>Qualquer</option>
+                                <option value="200000">R$ 200.000</option>
+                                <option value="500000">R$ 500.000</option>
+                                <option value="1000000">R$ 1.000.000</option>
+                                <option value="2000000">R$ 2.000.000</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="filterPriceMax" class="form-label">Preço Máximo</label>
+                            <select class="form-select" id="filterPriceMax">
+                                <option value="999999999" selected>Qualquer</option>
+                                <option value="500000">R$ 500.000</option>
+                                <option value="1000000">R$ 1.000.000</option>
+                                <option value="2000000">R$ 2.000.000</option>
+                                <option value="5000000">R$ 5.000.000</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="filterAreaMin" class="form-label">Área Mínima (m²)</label>
+                            <select class="form-select" id="filterAreaMin">
+                                <option value="0" selected>Qualquer</option>
+                                <option value="50">50 m²</option>
+                                <option value="100">100 m²</option>
+                                <option value="150">150 m²</option>
+                                <option value="200">200 m²</option>
+                            </select>
+                        </div>
+                        <div class="col-md-3 d-flex align-items-end">
+                            <button type="submit" class="btn btn-primary w-100">Filtrar</button>
+                            <button type="reset" class="btn btn-outline-secondary w-100 ms-2">Limpar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria de Imóveis -->
+    <section class="property-gallery py-5">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h2 class="mb-0">Imóveis Disponíveis</h2>
+                <div class="sort-options">
+                    <select class="form-select" id="sortProperties">
+                        <option value="recent" selected>Mais Recentes</option>
+                        <option value="price-asc">Preço: Menor para Maior</option>
+                        <option value="price-desc">Preço: Maior para Menor</option>
+                        <option value="area-asc">Área: Menor para Maior</option>
+                        <option value="area-desc">Área: Maior para Menor</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="row" id="propertyGrid">
+                <!-- Imóvel 1 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="apartment" data-transaction="sale" data-location="sul" data-bedrooms="3" data-price="1850000" data-area="120">
+                    <div class="card property-card h-100">
+                        <div class="badge-overlay">
+                            <span class="badge bg-primary">Destaque</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Apartamento Higienópolis">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento Higienópolis</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Higienópolis, São Paulo</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 3 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 2 Banheiros</span>
+                                <span><i class="fas fa-ruler-combined"></i> 120m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 1.850.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imóvel 2 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="house" data-transaction="sale" data-location="oeste" data-bedrooms="4" data-price="2450000" data-area="320">
+                    <div class="card property-card h-100">
+                        <div class="badge-overlay">
+                            <span class="badge bg-secondary">Novidade</span>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Residencial Alphaville">
+                        <div class="card-body">
+                            <h5 class="card-title">Residencial Alphaville</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Barra da Tijuca, Rio de Janeiro</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 4 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 3 Banheiros</span>
+                                <span><i class="fas fa-ruler-combined"></i> 320m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 2.450.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imóvel 3 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="apartment" data-transaction="rent" data-location="centro" data-bedrooms="2" data-price="3500" data-area="80">
+                    <div class="card property-card h-100">
+                        <img src="https://images.unsplash.com/photo-1493809842364-78817add7ffb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Apartamento Centro">
+                        <div class="card-body">
+                            <h5 class="card-title">Apartamento Centro</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Centro, Belo Horizonte</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 2 Quartos</span>
+                                <span><i class="fas fa-bath"></i> 1 Banheiro</span>
+                                <span><i class="fas fa-ruler-combined"></i> 80m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 3.500/mês</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imóvel 4 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="commercial" data-transaction="sale" data-location="centro" data-bedrooms="0" data-price="1200000" data-area="200">
+                    <div class="card property-card h-100">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" class="card-img-top" alt="Sala Comercial">
+                        <div class="card-body">
+                            <h5 class="card-title">Sala Comercial Centro</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Centro, São Paulo</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-door-open"></i> 2 Salas</span>
+                                <span><i class="fas fa-toilet"></i> 1 Banheiro</span>
+                                <span><i class="fas fa-ruler-combined"></i> 200m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 1.200.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imóvel 5 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="land" data-transaction="sale" data-location="norte" data-bedrooms="0" data-price="850000" data-area="500">
+                    <div class="card property-card h-100">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Terreno Zona Norte">
+                        <div class="card-body">
+                            <h5 class="card-title">Terreno Zona Norte</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Zona Norte, Rio de Janeiro</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-vector-square"></i> 15x30m</span>
+                                <span><i class="fas fa-road"></i> Frente: 15m</span>
+                                <span><i class="fas fa-ruler-combined"></i> 500m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 850.000</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Imóvel 6 -->
+                <div class="col-lg-4 col-md-6 mb-4 property-item" data-type="apartment" data-transaction="rent" data-location="sul" data-bedrooms="1" data-price="2200" data-area="55">
+                    <div class="card property-card h-100">
+                        <img src="https://images.unsplash.com/photo-1554469384-e58fac16e23a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1374&q=80" class="card-img-top" alt="Kitnet Zona Sul">
+                        <div class="card-body">
+                            <h5 class="card-title">Kitnet Zona Sul</h5>
+                            <p class="card-text text-muted"><i class="fas fa-map-marker-alt"></i> Zona Sul, Porto Alegre</p>
+                            <div class="features d-flex justify-content-between">
+                                <span><i class="fas fa-bed"></i> 1 Quarto</span>
+                                <span><i class="fas fa-bath"></i> 1 Banheiro</span>
+                                <span><i class="fas fa-ruler-combined"></i> 55m²</span>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4 class="price mb-0">R$ 2.200/mês</h4>
+                                <a href="#" class="btn btn-sm btn-outline-primary">Detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paginação -->
+            <nav aria-label="Page navigation" class="mt-5">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+                    </li>
+                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Próximo</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h3>Daniel Caldas da Silva</h3>
+                    <p class="footer-subtitle">Corretor de Imóveis</p>
+                    <p>CRECI/PR: 41335</p>
+                    
+                    <div class="social-links mt-3">
+                        <a href="https://danielcaldascorretordeimoveis.com/?fbclid=IwZXh0bgNhZW0CMTEAAR7dDVY-LrZZQQofF-XLX9Q9JtYRTTKIUC3cjEePaY8sCu89LsYVZi_O8QgK-g_aem_wI0RVqZefvVYIa1VMmIL-g"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/danielcaldas_corretorimoveis?igsh=OG9uYThta292ZHBr"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.tiktok.com/@danielcaldasdasil?_t=ZM-8xfyGlnUDdW&_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                    <h4>Contato</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-phone-alt"></i> (42) 99815-1888</li>
+                        <li><i class="fas fa-envelope"></i> imobiliariaprospectarimoveis@gmail.com
+</li>
+                        <li><i class="fas fa-map-marker-alt"></i> Rua 7 de setembro, 109 - Bairro Azaléia 
+, Pinhão - PR</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-4">
+            
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <p class="mb-0">&copy; Desenvolvido por <a href="https://jhstech.com.br/index.php?menuop=portifolio">JHStech</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Button -->
+    <a href="https://wa.me/5542998151888" class="whatsapp-button" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>

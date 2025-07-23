@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | Sistema Imobiliário</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personalizado -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="login-page">
+    <div class="login-container">
+        <div class="login-card">
+            <!-- Logo -->
+            <div class="login-header text-center mb-4">
+                <a href="index.html">
+                    <span class="brand-name">Daniel Caldas da Silva</span>
+                    <span class="brand-subtitle">Corretor de Imóveis</span>
+                </a>
+            </div>
+            
+            <!-- Formulário de Login -->
+            <form id="loginForm" class="login-form">
+                <h2 class="text-center mb-4">Acessar Sistema</h2>
+                
+                <div class="mb-3">
+                    <label for="email" class="form-label">E-mail</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                        <input type="email" class="form-control" id="email" placeholder="seu@email.com" required>
+                    </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="password" class="form-label">Senha</label>
+                    <div class="input-group">
+                        <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                        <input type="password" class="form-control" id="password" placeholder="••••••••" required>
+                        <button class="btn btn-outline-secondary toggle-password" type="button">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <div class="form-text text-end">
+                        <a href="#" id="forgotPassword">Esqueceu a senha?</a>
+                    </div>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Lembrar de mim</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary w-100 mb-3">Entrar</button>
+                
+                <div class="text-center">
+                    <p class="mb-0">Não tem uma conta? <a href="#" id="registerLink">Cadastre-se</a></p>
+                </div>
+                
+            </form>
+            
+            <!-- Modal Esqueci a Senha -->
+            <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Recuperar Senha</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Digite seu e-mail cadastrado para receber as instruções de recuperação de senha.</p>
+                            <form id="recoveryForm">
+                                <div class="mb-3">
+                                    <label for="recoveryEmail" class="form-label">E-mail</label>
+                                    <input type="email" class="form-control" id="recoveryEmail" required>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                            <button type="submit" form="recoveryForm" class="btn btn-primary">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="login-footer text-center mt-4">
+            <p class="text-muted small">&copy; 2025 <a href="www.jhstech.com.br">JHStech</a>. Todos os direitos reservados.</p>
+            <p class="small">
+                <a href="#">Termos de Uso</a> | 
+                <a href="#">Política de Privacidade</a> | 
+                <a href="#">Ajuda</a>
+            </p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- JS Personalizado -->
+    <script src="script.js"></script>
+</body>
+</html>
